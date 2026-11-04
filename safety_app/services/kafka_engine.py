@@ -45,9 +45,11 @@ class A3KafkaEngine:
                 continue
 
             try:
-                data = json.loads(msg.value().decode('utf-8'))
-                schema = data.get("schema")
-                payload = data.get("payload", {})
+                value = msg.value()
+                if value is not None:
+                    data = json.loads(value.decode('utf-8'))
+                    schema = data.get("schema")
+                    payload = data.get("payload", {})
 
                 if schema == "ods.s2.entity":
                     self._process_entity(payload)
