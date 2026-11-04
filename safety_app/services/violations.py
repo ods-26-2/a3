@@ -1,24 +1,13 @@
 import pandas as pd
-from datetime import datetime, timedelta
-import random
+from services.kafka_engine import get_violations_state
 
 def get_mock_violations() -> pd.DataFrame:
-    """Gera e retorna os dados mockados de violações."""
-    random.seed(42)
-    base_time = datetime(2026, 10, 16, 0, 0)
-    data = []
+    """Consome e retorna os dados reais processados pelo Kafka no formato esperado pela UI."""
+    data = get_violations_state()
     
-    for _ in range(41):
-        hour_offset = random.randint(0, 10)
-        minute_offset = random.randint(0, 59)
-        time = base_time + timedelta(hours=hour_offset, minutes=minute_offset)
-        cam = random.choice(["Cam 01", "Cam 02", "Cam 03"])
-        grau = random.choice([1, 2, 3])
-        data.append({
-            "Grau de violação": grau,
-            "Nome da câmera": cam,
-            "Horário da violação": time
-        })
-    
+    if not data:
+        # Mantém a estrutura de colunas para não quebrar os componentes visuais do Streamlit
+        return pd.DataFrame(columns=["Grau de violação", "Nome da câmera", "Horário da violação"])
+        
     df = pd.DataFrame(data)
     return df.sort_values("Horário da violação").reset_index(drop=True)
