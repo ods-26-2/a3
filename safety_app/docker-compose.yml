@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    container_name: a3_monitoring_app
+    ports:
+      - "8501:8501"
+    volumes:
+      # Mapeia dados e banco local para não perder alterações ao reiniciar o container
+      - ./data:/app/data
+      - ./db:/app/db
+    environment:
+      # Ajuste conforme as variáveis esperadas em services/kafka_config.py
+      - KAFKA_BOOTSTRAP_SERVERS=host.docker.internal:9092
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
