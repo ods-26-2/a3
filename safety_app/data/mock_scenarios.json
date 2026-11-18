@@ -1,0 +1,196 @@
+{
+  "fixture_version": "1.0",
+  "notes": "Mock local do A3: 3 eventos qualificados S2 + 2 observações normais S1. Eventos normais NÃO são publicados por S2.",
+  "scenarios": [
+    {
+      "sample_id": "A3-DEMO-001",
+      "case": "VIOLATION",
+      "label": "Entrada em zona restrita",
+      "a3_display": {
+        "camera_label": "Cam 01",
+        "violation": true
+      },
+      "envelope": {
+        "schema": "ods.s2.event",
+        "message_type": "event",
+        "message_id": "71d1dc24-0074-58ef-a45f-393bca425676",
+        "schema_version": "1.0",
+        "producer": "S2",
+        "published_at": "2026-10-16T00:05:00.200Z",
+        "captured_at": "2026-10-16T00:05:00.000Z",
+        "source_id": "cam0",
+        "session_id": "7f7e2187-b336-5c97-a1e6-5ab689f000d2",
+        "sequence": 1,
+        "artifact_version": "rules-a3-demo-1",
+        "payload": {
+          "event_id": "af5b55b5-f654-568e-8da9-7be99f69ea52",
+          "event_type": "ZONE_ENTER",
+          "rule_id": "a3-restricted-entry",
+          "status": "CONFIRMED",
+          "phase": "STARTED",
+          "confidence": 0.96,
+          "entity_id": "entity-mock-01",
+          "class": "person",
+          "zone_id": "a3-zona-restrita-1",
+          "started_at": "2026-10-16T00:05:00.000Z",
+          "duration_ms": 6000,
+          "source_ids": [
+            "cam0"
+          ],
+          "details": {
+            "transition": "ENTER",
+            "zone_policy": "RESTRICTED"
+          }
+        }
+      }
+    },
+    {
+      "sample_id": "A3-DEMO-002",
+      "case": "VIOLATION",
+      "label": "Capacidade excedida",
+      "a3_display": {
+        "camera_label": "Cam 02",
+        "violation": true
+      },
+      "envelope": {
+        "schema": "ods.s2.event",
+        "message_type": "event",
+        "message_id": "b97c6c86-d1f0-5566-9eb4-30cf6eab2bac",
+        "schema_version": "1.0",
+        "producer": "S2",
+        "published_at": "2026-10-16T00:51:00.200Z",
+        "captured_at": "2026-10-16T00:51:00.000Z",
+        "source_id": "cam1",
+        "session_id": "7f7e2187-b336-5c97-a1e6-5ab689f000d2",
+        "sequence": 2,
+        "artifact_version": "rules-a3-demo-1",
+        "payload": {
+          "event_id": "8857783a-ad56-5d49-968b-9010a750a545",
+          "event_type": "OCCUPANCY_ABOVE",
+          "rule_id": "a3-zone-capacity",
+          "status": "CONFIRMED",
+          "phase": "STARTED",
+          "confidence": 0.93,
+          "entity_id": "entity-mock-02",
+          "class": "person",
+          "zone_id": "a3-zona-armazenamento",
+          "started_at": "2026-10-16T00:51:00.000Z",
+          "duration_ms": 5000,
+          "source_ids": [
+            "cam1"
+          ],
+          "details": {
+            "occupancy": 4,
+            "max_occupancy": 2
+          }
+        }
+      }
+    },
+    {
+      "sample_id": "A3-DEMO-003",
+      "case": "VIOLATION",
+      "label": "Permanência acima do limite",
+      "a3_display": {
+        "camera_label": "Cam 03",
+        "violation": true
+      },
+      "envelope": {
+        "schema": "ods.s2.event",
+        "message_type": "event",
+        "message_id": "423b25e1-3f3c-53d9-a3fa-ea6a62079bd7",
+        "schema_version": "1.0",
+        "producer": "S2",
+        "published_at": "2026-10-16T01:24:00.200Z",
+        "captured_at": "2026-10-16T01:24:00.000Z",
+        "source_id": "cam2",
+        "session_id": "7f7e2187-b336-5c97-a1e6-5ab689f000d2",
+        "sequence": 3,
+        "artifact_version": "rules-a3-demo-1",
+        "payload": {
+          "event_id": "3787cb3b-539d-5bcc-bb07-42b646e04189",
+          "event_type": "DWELL_EXCEEDED",
+          "rule_id": "a3-zone-dwell",
+          "status": "CONFIRMED",
+          "phase": "STARTED",
+          "confidence": 0.89,
+          "entity_id": "entity-mock-03",
+          "class": "person",
+          "zone_id": "a3-zona-carga",
+          "started_at": "2026-10-16T01:24:00.000Z",
+          "duration_ms": 45000,
+          "source_ids": [
+            "cam2"
+          ],
+          "details": {
+            "dwell_s": 45,
+            "max_dwell_s": 30
+          }
+        }
+      }
+    },
+    {
+      "sample_id": "A3-DEMO-004",
+      "case": "NORMAL_OBSERVATION",
+      "label": "Ocupação dentro da capacidade",
+      "a3_display": {
+        "violation": false,
+        "camera_label": "Cam 01"
+      },
+      "envelope": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "message_id": "2ffac64a-908f-52a2-b0c0-bc6a0cf36972",
+        "schema_version": "1.0",
+        "producer": "S1",
+        "published_at": "2026-10-16T01:37:00.200Z",
+        "captured_at": "2026-10-16T01:37:00.000Z",
+        "source_id": "cam0",
+        "session_id": "7f7e2187-b336-5c97-a1e6-5ab689f000d2",
+        "sequence": 1,
+        "artifact_version": "zones-a3-demo-1",
+        "payload": {
+          "zone_id": "a3-zona-espera",
+          "count": 1,
+          "count_by_class": {
+            "person": 1
+          },
+          "max_occupancy": 3,
+          "track_ids": [
+            "track-demo-10"
+          ]
+        }
+      }
+    },
+    {
+      "sample_id": "A3-DEMO-005",
+      "case": "NORMAL_OBSERVATION",
+      "label": "Zona vazia (sem violação)",
+      "a3_display": {
+        "violation": false,
+        "camera_label": "Cam 02"
+      },
+      "envelope": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "message_id": "e7e24f08-2d02-5539-a17c-a69977b6ba55",
+        "schema_version": "1.0",
+        "producer": "S1",
+        "published_at": "2026-10-16T02:23:00.200Z",
+        "captured_at": "2026-10-16T02:23:00.000Z",
+        "source_id": "cam1",
+        "session_id": "7f7e2187-b336-5c97-a1e6-5ab689f000d2",
+        "sequence": 2,
+        "artifact_version": "zones-a3-demo-1",
+        "payload": {
+          "zone_id": "a3-zona-acesso",
+          "count": 0,
+          "count_by_class": {
+            "person": 0
+          },
+          "max_occupancy": 1,
+          "track_ids": []
+        }
+      }
+    }
+  ]
+}

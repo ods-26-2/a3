@@ -1,0 +1,59 @@
+{
+  "fixture_version": "1.0",
+  "notes": "Descritores de S4 simulados, media_uri fictícia; MP4 sintético separado para player B6",
+  "clips_by_event_id": {
+    "af5b55b5-f654-568e-8da9-7be99f69ea52": [
+      {
+        "clip_id": "b3e11b43-093c-55da-ac92-85f4d258197f",
+        "event_id": "af5b55b5-f654-568e-8da9-7be99f69ea52",
+        "media_type": "CLIP",
+        "media_uri": "s4://clips/mock/b3e11b43-093c-55da-ac92-85f4d258197f.mp4",
+        "start_at": "2026-10-16T00:04:55.000Z",
+        "end_at": "2026-10-16T00:05:10.000Z",
+        "points_of_interest": [
+          {
+            "at": "2026-10-16T00:05:00.000Z",
+            "label": "Início do evento (mock)"
+          }
+        ],
+        "hash_sha256": "f4a2a051c9d0f3768a992b2a948c5854b279b3fd13619c29b08dd43b7e99c545",
+        "expires_at": "2027-01-01T00:00:00.000Z"
+      }
+    ],
+    "8857783a-ad56-5d49-968b-9010a750a545": [
+      {
+        "clip_id": "2b1e945e-1dcf-54ed-820c-921deff67349",
+        "event_id": "8857783a-ad56-5d49-968b-9010a750a545",
+        "media_type": "CLIP",
+        "media_uri": "s4://clips/mock/2b1e945e-1dcf-54ed-820c-921deff67349.mp4",
+        "start_at": "2026-10-16T00:50:55.000Z",
+        "end_at": "2026-10-16T00:51:10.000Z",
+        "points_of_interest": [
+          {
+            "at": "2026-10-16T00:51:00.000Z",
+            "label": "Início do evento (mock)"
+          }
+        ],
+        "hash_sha256": "f4a2a051c9d0f3768a992b2a948c5854b279b3fd13619c29b08dd43b7e99c545",
+        "expires_at": "2027-01-01T00:00:00.000Z"
+      },
+      {
+        "clip_id": "2ccc489c-88b4-58c6-a1c6-80e7a86c0fa3",
+        "event_id": "8857783a-ad56-5d49-968b-9010a750a545",
+        "media_type": "CLIP",
+        "media_uri": "s4://clips/mock/2ccc489c-88b4-58c6-a1c6-80e7a86c0fa3.mp4",
+        "start_at": "2026-10-16T00:50:55.000Z",
+        "end_at": "2026-10-16T00:51:10.000Z",
+        "points_of_interest": [
+          {
+            "at": "2026-10-16T00:51:00.000Z",
+            "label": "Início do evento (mock)"
+          }
+        ],
+        "hash_sha256": "f4a2a051c9d0f3768a992b2a948c5854b279b3fd13619c29b08dd43b7e99c545",
+        "expires_at": "2027-01-01T00:00:00.000Z"
+      }
+    ],
+    "3787cb3b-539d-5bcc-bb07-42b646e04189": []
+  }
+}
